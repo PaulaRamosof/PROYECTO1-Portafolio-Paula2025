@@ -1,85 +1,137 @@
-.custom-header {
-  background-color: #fdf6e3 !important;
-  border-bottom: 2px solid #e0cfc2 !important;
-  padding:15px !important;
-  height: 180px !important;
+/* Box sizing global */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
+
 /* Elimina márgenes y paddings globales */
 body, html {
   margin: 0;
   padding: 0;
 }
-/* header img */
-header img {
-  height: 120px; 
-  width: auto;
-  object-fit:contain!important;
+
+/* Header */
+.custom-header {
+  background-color: #fdf6e3 !important;
+  border-bottom: 2px solid #e0cfc2 !important;
+  padding: 1rem !important;
+  height: auto;
 }
+
+.custom-header .container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo-img {
+  max-height: 100px;
+  width: auto;
+  flex-shrink: 0;
+  object-fit: contain !important;
+}
+
 @media (max-width: 768px) {
-  header img {
-    height: 60px;
+  .logo-img {
+    max-height: 60px;
   }
+}
+
+/* Botones en header */
+#miCuenta, #showCarrito {
+  margin-left: 0.5rem;
+  white-space: nowrap;
+  font-size: 0.9rem;
 }
 
 /* Botones personalizados */
 .btn-outline-primary {
-    border-color: #c03135;
-    background-color: #c03135;
-    color:#fff;
-    font-family:lato,serif;
-    font-weight: 600;
-    padding: 10px 20px;
-
+  border-color: #c03135;
+  background-color: #c03135;
+  color: #fff;
+  font-family: 'Lato', serif;
+  font-weight: 600;
+  padding: 0.360rem 1.15rem;
 }
 
 .btn-outline-primary:hover {
-    border-color: #c03135; 
-    background-color: #E0D6CA;
-    color: #c03135;
+  border-color: #c03135; 
+  background-color: #E0D6CA;
+  color: #c03135;
 }
 
 .btn-outline-success {
-    border-color: #e6a834;
-    background-color: #e6a834;
-    color:#1F3786;
-    font-family:lato,serif;
-    font-weight: 600;
+  border-color: #e6a834;
+  background-color: #e6a834;
+  color: #1F3786;
+  font-family: 'Lato', serif;
+  font-weight: 600;
+  padding: 0.360rem 1.15rem;
 }
 
 .btn-outline-success:hover {
-    border-color: #e6a834;
-    background-color: #E0D6CA;
-    color: #1B375E;
+  border-color: #e6a834;
+  background-color: #E0D6CA;
+  color: #1B375E;
 }
 
-/*NavBar*/
+/* NavBar */
+.navbar {
+  background-color: #1F3861 !important;
+}
+
+.navbar-nav {
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
 .nav-item {
-    font-family: 'Lato',serif;
-    font-weight: 500;
+  font-family: 'Lato', serif;
+  font-weight: 500;
+}
+
+.navbar-nav .nav-link {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  color: #fff !important;
+  transition: all 0.3s ease;
 }
 
 .navbar-nav .nav-link:hover {
   background-color: #0056b3; 
   color: #ffffff; 
   border-radius: 5px; 
-  transition: all 0.3s ease; 
+}
+
+@media (max-width: 576px) {
+  .navbar-nav .nav-link {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.9rem;
+  }
 }
 
 /* Zona carrusel */
 .carousel {  
-  height: auto; /* Solo lo necesario */
-  margin-bottom: 1rem; /* Espacio razonable debajo */
-  
+  height: auto;
+  margin-bottom: 1rem;
 }
 
 .carousel-img {  
   width: 100%;
   max-height: 380px;
-  object-fit: cover; /* O 'contain' si prefieres ver toda la imagen */
+  object-fit: cover;
 }
 
+@media (max-width: 768px) {
+  .carousel-img {
+    max-height: 220px;
+  }
+}
 
-/* Panel lateral derecho */
+/* Panel lateral derecho (modal carrito) */
 .modal-content {
   position: fixed;
   top: 0;
@@ -89,12 +141,12 @@ header img {
   height: 100%;
   background-color: #E6A834;
   box-shadow: -4px 0 10px rgba(0, 0, 0, 0.2);
-  padding: 30px;
+  padding: 2rem;
   overflow-y: auto;
   animation: slideIn 0.4s ease forwards;
+  box-sizing: border-box;
 }
 
-/* Animación de entrada */
 @keyframes slideIn {
   from {
     right: -400px;
@@ -103,6 +155,14 @@ header img {
   to {
     right: 0;
     opacity: 1;
+  }
+}
+
+@media (max-width: 576px) {
+  .modal-content {
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
   }
 }
 
@@ -118,23 +178,24 @@ header img {
 }
 
 #products {
-  background-color:#ffffff ;
-  padding: 20px;
+  background-color: #ffffff;
+  padding: 1.25rem;
   border-radius: 12px;
   max-width: 1000px;
   width: 100%;
-  max-height: 80vh;
+  max-height: 60vh;
   overflow-y: auto;
   box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  box-sizing: border-box;
 }
 
 .producto-card {
   display: grid;
   grid-template-columns: 100px 1fr;
-  gap: 16px;
-  margin-bottom: 20px;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
   border-bottom: 1px solid #0f0707;
-  padding-bottom: 12px;
+  padding-bottom: 0.75rem;
 }
 
 .producto-card img {
@@ -151,7 +212,7 @@ header img {
 }
 
 .producto-card p {
-  margin: 4px 0;
+  margin: 0.25rem 0;
   font-size: 0.95rem;
 }
 
@@ -163,19 +224,18 @@ header img {
 #totalFactura {
   font-size: 1.2rem;
   font-weight: bold;
-  margin-top: 16px;
+  margin-top: 1rem;
   text-align: right;
   color: #0f0f0f;
 }
-
 
 /* Botón de compra */
 .btn-comprar {
   background-color: #c03135;
   color: white;
   border-radius: 10px;
-  margin-top: 16px;
-  padding: 12px 20px;
+  margin-top: 1rem;
+  padding: 0.75rem 1.25rem;
   width: 100%;
   font-family: 'Lato', serif;
   font-weight: bold;
@@ -188,127 +248,29 @@ header img {
   color: #1B375E;
 }
 
-.productos-destacados h2{
-    font-size: 30px;
-    color:#ffffff ;
-    font-family: 'Lato',serif;
-    font-weight: 600;    
-    background-color: #1F3861;
-    text-align: center;
-}
-
+/* Productos destacados */
 .productos-destacados {
-    background-color: #c03135;
+  background-color: #c03135;
+  padding: 1rem 0;
 }
+
+.productos-destacados h2 {
+  font-size: 1.875rem;
+  color: #ffffff;
+  font-family: 'Lato', serif;
+  font-weight: 600;    
+  background-color: #1F3861;
+  text-align: center;
+  margin: 0 0 1rem 0;
+}
+
 .imagenes-productos-destacados {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 15px;
-    justify-items: center;
-}
-
-.suscribirse-redes {
-    background-color: #E6A834;
-    padding: 15px 10px;
-}
-
-.redes {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1000px;
-    margin: auto;
-    flex-wrap: wrap;
-    gap: 30px;
-}
-
-.newsletter-formulario {    
-    display: 1;
-    max-width: 100%;
-}
-
-.newsletter-formulario form {
-    display: flex;
-    gap: 10px;
-    margin-top: 10px;
-}
-
-.newsletter-formulario input {
-    padding: 8px;
-    flex: 1;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.newsletter-formulario button {
-    background-color: #c03135;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.redes-sociales {
-    flex: 1;
-    max-width: 55%;
-    text-align:center;
-}
-.redes.sociales .iconos-redes {
-    display: flex;
-    gap: 15px;
-    margin-top: 5px;
-}
-
-.iconos-redes img {
-    width: auto;
-    height: 50px;
-
-}
-
-.footer-contacto-preguntas {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding: 40px 60px;
-  background-color: #808896; 
-  flex-wrap: wrap;
-  font-family: Lato,serif;
-  font-size: 16px;  
-  gap: 20px;
-}
-
-.footer-contacto-preguntas .contacto,
-.footer-contacto-preguntas .preguntas-frecuentes {
-  flex: 1;
-  max-width: 45%;
-}
-
-.footer-contacto-preguntas p:first-child {
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-
-.footer-contacto-preguntas p {
-  margin: 5px 0;
-  color: #000;
-}
-
-.imagenes-pago {
-    display: flex;
-    height: 60px;
-    width: auto;
-    justify-content: center;
-    align-items: center;
-    gap: 25px;
-    padding: 30px 0;
-}
-
-.imagenes-pago img {
-    height: 40px;
-    width: auto;
-    object-fit: contain;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  justify-items: center;
+  padding: 0 1rem;
+  box-sizing: border-box;
 }
 
 /* Ajuste general para las imágenes de productos destacados */
@@ -316,16 +278,18 @@ header img {
   background: #E0D6CA;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  padding: 16px;
-  margin: 12px;
-  width: auto;
-  height: 600px;
+  padding: 1rem;
+  margin: 0.75rem 0;
+  width: 100%;
+  max-width: 220px;
+  height: auto;
   overflow: hidden;
   display: flex;  
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   transition: transform 0.3s ease;
+  box-sizing: border-box;
 }
 
 .productodestacado:hover {
@@ -341,7 +305,7 @@ header img {
 
 .categoria {
   font-weight: 600;
-  margin: 8px 0;
+  margin: 0.5rem 0;
   font-size: 1.1rem;
   color: #333;
 }
@@ -349,24 +313,25 @@ header img {
 .precio {
   font-size: 1rem;
   color: #009688;
-  margin: 6px 0;
+  margin: 0.375rem 0;
 }
 
 .talla-select,
 .cantidad-input {
-  margin: 6px 0;
-  padding: 6px;
+  margin: 0.375rem 0;
+  padding: 0.375rem;
   border-radius: 6px;
   border: 1px solid #ccc;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .btn-agregar {
   background-color: #ff5722;
   color: white;
   border: none;
-  padding: 10px;
-  margin-top: 10px;
+  padding: 0.625rem;
+  margin-top: 0.625rem;
   border-radius: 8px;
   cursor: pointer;
   width: 100%;
@@ -382,8 +347,8 @@ header img {
   background-color: #c62828;
   color: white;
   border: none;
-  padding: 10px 16px;
-  margin-top: 12px;
+  padding: 0.625rem 1rem;
+  margin-top: 0.75rem;
   border-radius: 8px;
   cursor: pointer;
   font-weight: bold;
@@ -393,40 +358,324 @@ header img {
 .btn-vaciar:hover {
   background-color: #b71c1c;
 }
+
 .fade-out {
   opacity: 0;
   transition: opacity 0.3s ease;
 }
+
 .notificacion {
   position: fixed;
   bottom: 20px;
   right: 20px;
   background: #222;
   color: #fff;
-  padding: 10px 20px;
+  padding: 0.625rem 1.25rem;
   border-radius: 8px;
-  font-size: 14px;
+  font-size: 0.875rem;
   z-index: 9999;
 }
+
 .talla-cantidad-container {
   display: flex;
-  flex-wrap: wrap; /* Por si en móviles se necesita que se acomoden verticalmente */
+  flex-wrap: wrap;
   align-items: center;
-  gap: 10px;
-  margin-top: 8px;
+  gap: 0.625rem;
+  margin-top: 0.5rem;
 }
 
 .talla-select,
 .cantidad-input {
   flex: 1;
   min-width: 100px;
-  padding: 4px;
+  padding: 0.25rem;
   font-size: 0.9rem;
+  box-sizing: border-box;
 }
 
 @media (max-width: 480px) {
   .talla-cantidad-container {
     flex-direction: column;
     align-items: stretch;
+  }
+}
+
+/* Parte de suscribirse y redes sociales */
+.suscribirse-redes {
+  background-color: #E6A834;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.redes {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1000px;
+  margin: auto;
+  flex-wrap: wrap;
+  gap: 1.875rem;
+}
+
+.newsletter-formulario {    
+  display: flex;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.newsletter-formulario form {
+  display: flex;
+  gap: 0.625rem;
+  margin-top: 0.625rem;
+  flex-wrap: wrap;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.newsletter-formulario input {
+  padding: 0.5rem;
+  flex: 1 1 150px;
+  min-width: 120px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.newsletter-formulario button {
+  background-color: #c03135;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  flex: 1 1 120px;
+  min-width: 100px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 480px) {
+  .newsletter-formulario form {
+    flex-direction: column;
+  }
+
+  .newsletter-formulario input,
+  .newsletter-formulario button {
+    flex: 1 1 100%;
+    min-width: auto;
+  }
+}
+
+.redes-sociales {
+  flex: 1;
+  max-width: 55%;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.redes-sociales .iconos-redes {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.3125rem;
+  justify-content: center;
+}
+
+.iconos-redes img {
+  width: auto;
+  height: 50px;
+}
+
+/* Contacto y preguntas frecuentes */
+.footer-contacto-preguntas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 2rem 1rem;
+  background-color: #808896;
+  font-family: 'Lato', serif;
+  font-size: 1rem;
+  color: #000;
+  box-sizing: border-box;
+}
+
+.footer-contacto-preguntas > div {
+  flex: 1 1 300px;
+  min-width: 250px;
+}
+
+.footer-contacto-preguntas p:first-child {
+  font-weight: bold;
+  margin-bottom: 0.625rem;
+}
+
+.footer-contacto-preguntas p {
+  margin: 0.3125rem 0;
+}
+
+/* Imágenes de método de pago */
+.imagenes-pago {
+  display: flex;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5625rem;
+  padding: 1.875rem 0;
+  box-sizing: border-box;
+}
+
+.imagenes-pago img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Ajuste general para imágenes */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+/* Celulares pequeños */
+@media (max-width: 480px) {
+  /* Header: logo más pequeño y botones apilados */
+  .custom-header .container {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  #miCuenta, #showCarrito {
+    margin-left: 0;
+    font-size: 0.85rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Navbar: menú vertical y más compacto */
+  .navbar-nav {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .navbar-nav .nav-link {
+    padding: 0.4rem 0.5rem;
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  /* Carousel: altura reducida */
+  .carousel-img {
+    max-height: 180px;
+  }
+
+  /* Productos destacados: tarjetas a 100% ancho */
+  .imagenes-productos-destacados {
+    grid-template-columns: 1fr;
+    padding: 0 0.5rem;
+  }
+
+  .productodestacado {
+    max-width: 100%;
+    margin: 0.5rem 0;
+  }
+
+  /* Modal carrito: ocupa toda la pantalla */
+  .modal-content {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  /* Newsletter: formulario vertical */
+  .newsletter-formulario form {
+    flex-direction: column;
+  }
+
+  .newsletter-formulario input,
+  .newsletter-formulario button {
+    width: 100%;
+    min-width: auto;
+  }
+
+  /* Footer: columnas apiladas */
+  .footer-contacto-preguntas {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .footer-contacto-preguntas > div {
+    max-width: 100%;
+  }
+
+  /* Iconos redes sociales más pequeños */
+  .iconos-redes img {
+    height: 40px;
+  }
+}
+
+/* Celulares grandes y tablets pequeñas */
+@media (min-width: 481px) and (max-width: 768px) {
+  /* Header: logo y botones en fila con espacio */
+  .custom-header .container {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  #miCuenta, #showCarrito {
+    font-size: 0.9rem;
+  }
+
+  /* Navbar: menú horizontal con wrap */
+  .navbar-nav {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 1rem;
+    padding: 0.5rem 0.75rem;
+  }
+
+  /* Carousel: altura media */
+  .carousel-img {
+    max-height: 250px;
+  }
+
+  /* Productos destacados: 2 columnas */
+  .imagenes-productos-destacados {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 1rem;
+  }
+
+  /* Modal carrito: ancho máximo 350px */
+  .modal-content {
+    width: 350px;
+  }
+
+  /* Footer: dos columnas apiladas si no caben */
+  .footer-contacto-preguntas {
+    flex-wrap: wrap;
+  }
+
+  .footer-contacto-preguntas > div {
+    flex: 1 1 45%;
+    min-width: 200px;
+  }
+}
+
+/* Tablets grandes y laptops pequeñas */
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Carousel: altura un poco menor */
+  .carousel-img {
+    max-height: 320px;
+  }
+
+  /* Productos destacados: 3 columnas */
+  .imagenes-productos-destacados {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Modal carrito: ancho 400px */
+  .modal-content {
+    width: 400px;
   }
 }
